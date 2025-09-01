@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+<section id="careers-page" class="page-content active">
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">CAREERS</h1>
+      <div class="breadcrumb">
+        <a href="#" class="breadcrumb-link" data-page="home">HOME</a> /
+        <span>CAREERS</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {% comment %}
+    <div class="page-layout">
+      {% endcomment %} {% comment %}
+      <aside class="sidebar">
+        <div class="quick-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li><a href="#" class="sidebar-link">Current Openings</a></li>
+            <li>
+              <a href="#" class="sidebar-link">Application Process</a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link">Employee Benefits</a>
+            </li>
+          </ul>
+        </div>
+        <div class="certification-info">
+          <p>
+            Triptivo Infratech Project Pvt Ltd is a ISO 9001: 2015, 14001:2015,
+            45001:2018 certified Company
+          </p>
+        </div>
+      </aside>
+      {% endcomment %}
+
+      <main class="main-content-area">
+        <div class="content-section">
+          <h2>Current Job Opportunities</h2>
+          <div class="careers-grid">
+            {% for opening in job_openings %}
+              <div class="job-card">
+                <h3>{{opening.title}}</h3>
+                <p class="job-department">{{opening.department}}</p>
+                <p class="job-experience">
+                  <strong>Experience:</strong> {{opening.experience}}
+                </p>
+                <p class="job-location"><strong>Location:</strong> {{opening.location}}</p>
+                <p class="job-description" style="color: black">
+                  {{opening.description}}
+                </p>
+                {% comment %} <button class="btn btn--primary job-apply">Apply Now</button> {% endcomment %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </main>
+      {% comment %}
+    </div>
+    {% endcomment %}
+  </div>
+</section>
+{% endblock %}

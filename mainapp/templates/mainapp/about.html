@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<section id="about-page" class="page-content active">
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">ABOUT US</h1>
+      <div class="breadcrumb">
+        <a href="{% url 'home' %}" class="breadcrumb-link" data-page="home"
+          >HOME</a
+        >
+        / <span>COMPANY PROFILE</span> /
+        <span>ABOUT US</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-layout">
+      <aside class="sidebar">
+        <div class="quick-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li>
+              <a href="#" class="sidebar-link" data-page="about">About Us</a>
+            </li>
+            <li>
+              <a href="#" class="sidebar-link">Board of Directors</a>
+            </li>
+            <li><a href="#" class="sidebar-link">Management</a></li>
+          </ul>
+        </div>
+        <div class="certification-info">
+          <p>
+            Triptivo Infratech Project Pvt Ltd is a ISO 9001: 2015, 14001:2015,
+            45001:2018 certified Company
+          </p>
+        </div>
+      </aside>
+
+      <main class="main-content-area">
+        <div class="content-section">
+          <h2>Company Overview</h2>
+          <p class="company-description">{{about_us.about}}</p>
+        </div>
+
+        <div class="team-section">
+          <h2 class="section-title" id="board-directors">Board of Directors</h2>
+          <div class="team-grid">
+            {% for member in teams %} {% if member.type == "Board Of Directors"%}
+            <div class="team-card">
+              <img src="{{member.image.url}}" alt="{{member.name}}" />
+              <h3>{{member.name}}</h3>
+              <p>{{member.about}}</p>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
+        </div>
+
+        <div class="team-section">
+          <h2 class="section-title" id="management-team">Management Team</h2>
+          <div class="team-grid">
+            {% for member in teams %} {% if member.type == "Management"%}
+            <div class="team-card">
+              <img src="{{member.image.url}}" alt="{{member.name}}" />
+              <h3>{{member.name}}</h3>
+              <p>{{member.about}}</p>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+{% endblock %}

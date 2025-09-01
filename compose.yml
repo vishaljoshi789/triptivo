@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    container_name: triptivo
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - media_data:/app/media 
+      - ./db.sqlite3:/app/db.sqlite3
+    ports:
+      - "8000:8000"
+
+volumes:
+  media_data:

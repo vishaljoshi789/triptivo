@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Triptivo Infratech Project Pvt Ltd - Leading Infrastructure Company
+    </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <!-- Scroll to top button -->
+    <button
+      id="scrollToTop"
+      class="scroll-to-top hidden"
+      aria-label="Scroll to top"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 14L12 9L17 14"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+      <!-- Top bar -->
+      <div class="header-top">
+        <div class="container">
+          <div class="header-top-content">
+            <div class="contact-info">
+              <span class="contact-email">{{base_detail.email1}}</span>
+              <span class="contact-phone"
+                >{{base_detail.phone1}}, {{base_detail.phone2}}</span
+              >
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Main header -->
+      <div class="header-main">
+        <div class="container">
+          <div class="header-main-content">
+            <div class="logo">
+              <img src={% static 'logo.jpeg' %} height='60' width='60'>
+              <h1>TRIPTIVO INFRATECH PROJECT PVT LTD</h1>
+            </div>
+
+            <nav class="nav" id="mainNav">
+              <ul class="nav-list">
+                <li>
+                  <a href="{% url 'home' %}" class="nav-link active-section" data-page="home"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="{% url 'about' %}" class="nav-link" data-page="about">About Us</a>
+                </li>
+                <li>
+                  <a href="{% url 'projects' %}" class="nav-link" data-page="project">Projects</a>
+                </li>
+                <li>
+                  <a href="{% url 'careers' %}" class="nav-link" data-page="careers">Careers</a>
+                </li>
+                <li>
+                  <a href="{% url 'contact' %}" class="nav-link" data-page="contact"
+                    >Contact Us</a
+                  >
+                </li>
+              </ul>
+            </nav>
+
+            <button
+              class="mobile-menu-toggle"
+              id="mobileMenuToggle"
+              aria-label="Toggle mobile menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="{% url 'contact' %}" class="footer-link" data-page="contact">Contact Us</a>
+            <span class="separator">|</span>
+            <a href="#" class="footer-link">Disclaimer</a>
+            <span class="separator">|</span>
+            <a href="#" class="footer-link">Sitemap</a>
+          </div>
+          <p class="footer-copyright">
+            Copyright © Triptivo Infratech Project Pvt Ltd
+          </p>
+          <p class="footer-powered">Powered by : ITPL</p>
+          <p class="footer-scroll-text">Click to return on the top page</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'app.js' %}"></script>
+  </body>
+</html>

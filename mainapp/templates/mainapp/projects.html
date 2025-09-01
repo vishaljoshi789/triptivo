@@ -1,0 +1,93 @@
+{% extends 'base.html' %} {% block content %}
+<section id="projects-page" class="page-content active">
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">PROJECTS</h1>
+      <div class="breadcrumb">
+        <a href="{% url 'home' %}" class="breadcrumb-link" data-page="home"
+          >HOME</a
+        >
+        /
+        <span>PROJECTS</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-layout">
+      <aside class="sidebar">
+        <div class="quick-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li><a href="#Current" class="sidebar-link">Current Projects</a></li>
+            <li>
+              <a href="#Completed" class="sidebar-link">Completed Projects</a>
+            </li>
+          </ul>
+        </div>
+        <div class="certification-info">
+          <p>
+            Triptivo Infratech Project Pvt Ltd is a ISO 9001: 2015, 14001:2015,
+            45001:2018 certified Company
+          </p>
+        </div>
+      </aside>
+
+      <main class="main-content-area">
+        <div class="content-section" id="Current">
+          <h2>Current Projects</h2>
+          <div class="projects-grid">
+            {% for project in projects %}
+              {% if project.type == "Current Project" %}
+                <div class="project-card">
+                  <h3>
+                    {{project.name}}
+                  </h3>
+                  {% comment %} <p class="project-category">
+                    ROADS & HIGHWAYS CONSTRUCTION PROJECTS
+                  </p> {% endcomment %}
+                  <p class="project-description" style="color: black;">
+                    {{project.description}}
+                  </p>
+                  <div class="project-details">
+                    <span class="project-client"
+                      ><strong>Client:</strong> {{project.client}}</span
+                    >
+                    <span class="project-value"
+                      ><strong>Value:</strong> {{project.value}}</span
+                    >
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="content-section" id="Completed">
+          <h2>Completed Projects</h2>
+          <div class="projects-grid">
+            {% for project in projects %}
+              {% if project.type == "Completed" %}
+                <div class="project-card completed">
+                  <h3>{{project.name}}</h3>
+                  <p class="project-description" style="color: black;">
+                    {{project.description}}
+                  </p>
+                  <div class="project-details">
+                    <span class="project-client"
+                      ><strong>Client:</strong> {{project.client}}</span
+                    >
+                    <span class="project-value"
+                      ><strong>Value:</strong> {{project.value}}</span
+                    >
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+{% endblock %}
