@@ -6,8 +6,8 @@ services:
     restart: always
     volumes:
       - media_data:/app/media
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
 
   nginx:
     image: nginx:alpine
